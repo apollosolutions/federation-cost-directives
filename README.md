@@ -52,11 +52,12 @@ query GetAllAstronauts {
 
 Should produce this output:
 
-```json
+```js
 {
   "data": {
     "astronauts": {
       // ...
+    }
   },
   "extensions": {
     "operationCosts": {
@@ -69,7 +70,7 @@ Should produce this output:
 
 However, if the `first` argument value is changed to `20`, it will exceed the maximum operation cost in the plugin and an error will be returned:
 
-```json
+```js
 {
   "errors": [
     {
