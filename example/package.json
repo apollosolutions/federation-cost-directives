@@ -1,0 +1,33 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "description": "A demonstration federated graph that uses the IBM cost directive specification.",
+  "scripts": {
+    "start": "concurrently -k npm:start:*",
+    "start:astronauts": "nodemon -r dotenv/config --exec ts-node ./src/services/astronauts/index.ts --watch src --ext .ts",
+    "start:missions": "nodemon -r dotenv/config --exec ts-node ./src/services/missions/index.ts --watch src --ext .ts",
+    "start:vehicles": "nodemon -r dotenv/config --exec ts-node ./src/services/vehicles/index.ts --watch src --ext .ts",
+    "start:gateway": "wait-on tcp:4001 tcp:4002 tcp:4003 && nodemon -r dotenv/config --exec ts-node ./src/gateway/index.ts --watch src --ext .ts",
+    "studio:push": "node -r dotenv/config ./src/scripts/push.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/gateway": "latest",
+    "@apollo/subgraph": "latest",
+    "@graphql-tools/utils": "^7.10.0",
+    "apollo-server": "latest",
+    "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
+    "execa": "^5.0.0",
+    "graphql": "../node_modules/graphql",
+    "nodemon": "^2.0.6",
+    "wait-on": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^15.6.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}

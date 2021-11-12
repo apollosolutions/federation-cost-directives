@@ -1,0 +1,13 @@
+subgraphs:
+  astronauts:
+    routing_url: http://localhost:4001/
+    schema:
+      subgraph_url: http://localhost:4001/
+  missions:
+    routing_url: http://localhost:4002
+    schema:
+      subgraph_url: http://localhost:4002/
+  vehicles:
+    routing_url: http://localhost:4003/
+    schema:
+      subgraph_url: http://localhost:4003/
